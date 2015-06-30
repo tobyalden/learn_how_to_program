@@ -9,6 +9,20 @@
 <body>
 
 <div class="container">
+
+  <% if flash[:notice] != nil || flash[:alert] != nil %>
+    <div class="container alerts">
+      <% if flash[:notice] != nil %>
+        <div class="alert alert-success" role="alert"><%= flash[:notice] %></div>
+      <% end %>
+
+      <% if flash[:alert] != nil %>
+        <div class="alert alert-danger" role="alert"><%= flash[:alert] %></div>
+      <% end %>
+    </div>
+  <% end %>
+
+
   <%= yield %>
 </div>
 
