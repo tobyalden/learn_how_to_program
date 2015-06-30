@@ -30,3 +30,12 @@ describe "the process of editing a lesson" do
     expect(page).to have_content "gopher"
   end
 end
+
+describe "the process of deleting a lesson" do
+  it "deletes a lesson" do
+    test_lesson = Lesson.create(:name => "Ember.js", :content => "If I see that damn hamster one more time");
+    visit lesson_path(test_lesson)
+    click_on "Delete"
+    expect(page).to have_no_content "Ember.js"
+  end
+end
