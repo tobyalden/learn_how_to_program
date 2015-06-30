@@ -39,3 +39,7 @@ describe "the process of deleting a lesson" do
     expect(page).to have_no_content "Ember.js"
   end
 end
+
+describe "the process of going to the next lesson" do
+  
+end

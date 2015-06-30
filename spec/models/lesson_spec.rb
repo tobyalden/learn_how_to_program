@@ -6,8 +6,8 @@ describe Lesson do
 
   describe "#next" do
     it "returns the lesson with the next-highest number. returns nil if none exists." do
-      current_lesson = Lesson.create(name: 'lesson1', content: 'content1', number: 1)
-      next_lesson = Lesson.create(name: 'lesson2', content: 'content2', number: 3)
+      current_lesson = Lesson.create(name: 'lesson1', content: 'content1')
+      next_lesson = Lesson.create(name: 'lesson2', content: 'content2')
       expect(current_lesson.next).to eq next_lesson
       expect(next_lesson.next).to eq nil
     end
@@ -15,8 +15,8 @@ describe Lesson do
 
   describe "#previous" do
     it "returns the lesson with the next-lowest number. returns nil if none exists." do
-      current_lesson = Lesson.create(name: 'lesson2', content: 'content2', number: 3)
-      previous_lesson = Lesson.create(name: 'lesson1', content: 'content1', number: 1)
+      previous_lesson = Lesson.create(name: 'lesson1', content: 'content1')
+      current_lesson = Lesson.create(name: 'lesson2', content: 'content2')
       expect(current_lesson.previous).to eq previous_lesson
       expect(previous_lesson.previous).to eq nil
     end

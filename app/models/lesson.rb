@@ -1,4 +1,5 @@
 class Lesson < ActiveRecord::Base
+  before_save :set_number
   validates :name, :presence => true
   validates :content, :presence => true
 
@@ -17,5 +18,16 @@ class Lesson < ActiveRecord::Base
   #     return all[all.index(self) + 1]
   #   end
   # end
+
+  private
+  def set_number
+    max = Lesson.maximum("number")
+    if max
+      self.number = max + 1
+    else
+      self.number = 1
+    end
+    true
+  end
 
 end
