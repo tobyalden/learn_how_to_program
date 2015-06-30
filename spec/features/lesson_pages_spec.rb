@@ -10,3 +10,12 @@ describe "the add a lesson process" do
     expect(page).to have_content "Ember"
   end
 end
+
+describe "the view a lesson process" do
+  it "displays lesson information" do
+    test_lesson = Lesson.create(:name => "Ember.js", :content => "If I see that damn hamster and/or gopher one more time");
+    visit lessons_path
+    click_on test_lesson.name
+    expect(page).to have_content "gopher"
+  end
+end
