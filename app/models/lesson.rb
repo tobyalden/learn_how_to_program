@@ -6,6 +6,10 @@ class Lesson < ActiveRecord::Base
     return Lesson.where("number > #{number}").order("number").first
   end
 
+  def previous
+    return Lesson.where("number < #{number}").order("number DESC").first
+  end
+
   # def next
   #   all = Lesson.all
   #   all = all.sort_by {|lesson| lesson.number}

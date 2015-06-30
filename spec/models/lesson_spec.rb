@@ -13,4 +13,13 @@ describe Lesson do
     end
   end
 
+  describe "#previous" do
+    it "returns the lesson with the next-lowest number. returns nil if none exists." do
+      current_lesson = Lesson.create(name: 'lesson2', content: 'content2', number: 3)
+      previous_lesson = Lesson.create(name: 'lesson1', content: 'content1', number: 1)
+      expect(current_lesson.previous).to eq previous_lesson
+      expect(previous_lesson.previous).to eq nil
+    end
+  end
+
 end
