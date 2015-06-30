@@ -11,6 +11,17 @@
   <%= link_to "Delete", lesson_path(@lesson), method: "delete" %>
 </p>
 
+<% if @lesson.next %>
+  <p>
+    <%= link_to "Next Lesson", lesson_path(@lesson.next) %>
+  </p>
+<% end %>
+
+<% if @lesson.previous %>
+  <p>
+    <%= link_to "Previous Lesson", lesson_path(@lesson.previous) %>
+  </p>
+<% end %>
 
 <p>
   <%= link_to "Back to Lessons", lessons_path %>

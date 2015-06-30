@@ -41,5 +41,21 @@ describe "the process of deleting a lesson" do
 end
 
 describe "the process of going to the next lesson" do
-  
+  it "goes to the next lesson" do
+    test_lesson = Lesson.create(:name => "Ember.js", :content => "If I see that damn hamster one more time");
+    test_lesson2 = Lesson.create(:name => "Rails", :content => "Our lord and savior");
+    visit lesson_path(test_lesson)
+    click_on "Next Lesson"
+    expect(page).to have_content "savior"
+  end
+end
+
+describe "the process of going to the next lesson" do
+  it "goes to the next lesson" do
+    test_lesson = Lesson.create(:name => "Ember.js", :content => "If I see that damn hamster one more time");
+    test_lesson2 = Lesson.create(:name => "Rails", :content => "Our lord and savior");
+    visit lesson_path(test_lesson2)
+    click_on "Previous Lesson"
+    expect(page).to have_content "hamster"
+  end
 end
